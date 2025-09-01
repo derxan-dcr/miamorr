@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para ti, mi amor ❤</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    body, h1, p, button {
+      user-select: none;
+      transition: background-color 1s ease;
+    }
+    body {
+      background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      color: #800000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .big-heart {
+      font-size: 80px;
+      animation: beat 1.2s infinite;
+      margin-bottom: 20px;
+      transition: transform 0.5s ease;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    .mensaje {
+      max-width: 600px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
+      user-select: text;
+    }
+    .fotos {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .fotos img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(128, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .fotos img:hover {
+      transform: scale(1.05);
+    }
+    button {
+      background-color: #800000;
+      border: none;
+      padding: 18px 50px;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(128, 0, 0, 0.6);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover:not(:disabled) {
+      background-color: #b30000;
+      transform: scale(1.05);
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+    #mensajeFinal, #mensajeExtra {
+      display: none;
+    }
+    .particle {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 230, 230, 0.95);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+      padding: 20px;
+      user-select: text;
+    }
+    .overlay h2 {
+      color: #b30000;
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    .overlay p {
+      font-size: 1.5rem;
+      color: #a00000;
+      margin-bottom: 30px;
+    }
+    #contenidoPrincipal {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    @media (max-width: 700px) {
+      .fotos img { width: 140px; height: 140px; }
+      .mensaje { font-size: 1rem; }
+      h1 { font-size: 2rem; }
+      .overlay h2 {
+        font-size: 2rem;
+      }
+      .overlay p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="overlay">
+    <h2>Hola Amor de mi Vida ❤</h2>
+    <p>¡Eres lo mejor que me ha pasado!</p>
+    <p>¡Bajele el sonido al telefono , 
+      no pude configurar eso despues tardaba y te me dormias!</p>
+    <p>¡Te Amoooooooooooooooo!</p>
+    <p>¡Preciona el Boton de aqui abajo!</p>
+    <button id="btnVer">Ver</button>
+  </div>
+
+  <div id="contenidoPrincipal">
+    <div class="big-heart" id="bigHeart">❤️</div>
+    <h1>Para ti, mi amor ❤</h1>
+
+    <div class="mensaje">
+      Perdon por ser un mal novio, se que hoy me porte como un idiota.<br />
+      Pero de verdad estoy intentando mejorar para poderte hacer feliz.<br />
+      Yo solo queria hablar contigo, no se por que pensaste que no tenia ganas.<br />
+      Y cuando me colgaste senti feo, me dolio mucho porque lo que menos quiero es que pienses que no me importas.<br />
+      Yo se que no tuve que reaccionar asi y te pido perdon.<br />
+      No quiero que esto se enfrie ni que te sientas sola.<br />
+      Eres lo mejor que tengo y lo unico que quiero es que estemos bien.<br />
+      Te amo con todo mi corazon, y aunque a veces no lo sepa demostrar, siempre estas en mi mente.<br />
+      Quiero una vida contigo, tener una familia, compartir todo.<br />
+      No quiero perderte, quiero cuidarte, apoyarte y hacerte sentir especial todos los dias.<br />
+      Gracias por aguantarme y por seguir aqui, yo no me voy a rendir contigo.<br />
+      Y no te olvides que en 5 meses estoy ahi con vos, para abrazarte fuerte, estar con vos y con Milo, cuidarlo juntos como se merece.<br />
+      Porque yo quiero una vida con vos… con los dos ❤
+    </div>
+
+    <div class="fotos">
+      <img src="https://cdn.discordapp.com/attachments/1393985242825494539/1411900471156801556/Imagen_de_WhatsApp_2025-08-31_a_las_23.27.38_a25bfdfe.jpg?ex=68b65648&is=68b504c8&hm=4ee8c6fb26fc8a80e2393ebcec747e595a9c80539a01189a429298e42b082378&" alt="Milo" />
+      <img src="https://cdn.discordapp.com/attachments/1393985242825494539/1411900752250671156/image.png?ex=68b6568b&is=68b5050b&hm=0b544251195ca1871aaf79d3074c4e26fca7cf13cde1d475df1da4083c2ac9ee&" alt="Mi amor" />
+    </div>
+
+    <button id="botonPerdon">Me perdonas?</button>
+  </div>
+
+  <div class="overlay" id="overlayFinal" style="display:none;">
+    <h2>Yupiiii Muchas Gracias</h2>
+    <h2>Gracias mi vida, te amo ❤</h2>
+    <p>¡Eres lo mejor que me ha pasado!</p>
+  </div>
+
+  <audio id="musica" loop>
+    <source src="musica/musica.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const btnVer = document.getElementById('btnVer');
+    const overlay = document.getElementById('overlay');
+    const contenido = document.getElementById('contenidoPrincipal');
+    const boton = document.getElementById('botonPerdon');
+    const overlayFinal = document.getElementById('overlayFinal');
+    const body = document.body;
+    const bigHeart = document.getElementById('bigHeart');
+    const musica = document.getElementById('musica');
+
+    function iniciarMusica() {
+      musica.volume = 0.3;
+      musica.play().catch(e => console.log("No se pudo reproducir música:", e));
+
+
+      window.removeEventListener('click', iniciarMusica);
+      window.removeEventListener('keydown', iniciarMusica);
+      window.removeEventListener('touchstart', iniciarMusica);
+      window.removeEventListener('scroll', iniciarMusica);
+    }
+
+    window.addEventListener('click', iniciarMusica);
+    window.addEventListener('keydown', iniciarMusica);
+    window.addEventListener('touchstart', iniciarMusica);
+    window.addEventListener('scroll', iniciarMusica);
+
+    btnVer.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      contenido.style.display = 'flex';
+    });
+
+    boton.addEventListener('click', () => {
+
+      overlayFinal.style.display = 'flex';
+
+
+      body.style.background = 'linear-gradient(135deg, #ffcccc, #ffe6e6)';
+      bigHeart.style.transform = 'scale(1.5)';
+      bigHeart.style.color = '#ff3366';
+
+
+      boton.style.display = 'none';
+
+
+      if (musica.paused) {
+        musica.volume = 0.2;
+        musica.play().catch(e => console.log("No se pudo reproducir música:", e));
+      }
+
+      let count = 0;
+      const maxParticles = 30;
+      const intervalParticles = setInterval(() => {
+        if (count >= maxParticles) {
+          clearInterval(intervalParticles);
+          return;
+        }
+        createHeartParticle();
+        count++;
+      }, 150);
+    });
+
+    function createHeartParticle() {
+      const heart = document.createElement('div');
+      heart.classList.add('particle');
+      heart.innerText = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.fontSize = Math.random() * 25 + 15 + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeartParticle, 500);
+  </script>
+</body>
+</html>
