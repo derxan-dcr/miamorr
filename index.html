@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>¡Para ti, mi amor! 🌻</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        
+        body, h1, h2, p, button {
+            user-select: none;
+            transition: background-color 1s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #FFFACD, #FFD700);
+            margin: 0;
+            padding: 40px 20px 80px;
+            color: #36454F;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 224, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        
+        .login-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            color: #DAA520;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+        }
+
+        .login-container p {
+            font-size: 1.1rem;
+            color: #696969;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            padding: 10px;
+            border: 2px solid #DAA520;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            outline: none;
+        }
+        
+        button {
+            background-color: #DAA520;
+            border: none;
+            padding: 18px 50px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.6);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        button:hover:not(:disabled) {
+            background-color: #FFC107;
+            transform: scale(1.05);
+        }
+        
+        button:disabled {
+            background-color: #ccc;
+            cursor: default;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        #contenidoPrincipal {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-ramo {
+            margin-bottom: 20px;
+            width: 150px;
+            height: auto;
+            animation: fadeInRamo 1.5s ease-out forwards;
+        }
+
+        .logo-ramo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        @keyframes fadeInRamo {
+            from { opacity: 0; transform: scale(0.8) translateY(-20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .big-flower {
+            font-size: 80px;
+            animation: floatAndBloom 1.2s infinite;
+            margin-bottom: 20px;
+            transition: transform 0.5s ease;
+            transform-origin: bottom;
+        }
+        
+        @keyframes floatAndBloom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2) translateY(-5px); }
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #DAA520;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 0;
+        }
+        
+        .mensaje {
+            max-width: 600px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            user-select: text;
+        }
+        
+        .fotos {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .fotos img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .fotos img:hover {
+            transform: scale(1.05);
+        }
+        
+        #overlayFinal {
+            display: none;
+        }
+        
+        .particle {
+            position: absolute;
+            color: #FFEA00;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(255, 255, 224, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            text-align: center;
+            padding: 20px;
+            user-select: text;
+        }
+        
+        .overlay h2 {
+            color: #DAA520;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .overlay p {
+            font-size: 1.5rem;
+            color: #696969;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            text-align: center;
+            padding: 15px;
+            box-sizing: border-box;
+            border-top: 1px solid #ddd;
+            z-index: 1000;
+        }
+        .footer-content {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        .developer-name {
+            font-weight: bold;
+            color: #DAA520;
+        }
+        
+        @media (max-width: 700px) {
+            .logo-ramo {
+                width: 120px;
+            }
+            .fotos img {
+                width: 140px;
+                height: 140px;
+            }
+            .mensaje {
+                font-size: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .overlay h2 {
+                font-size: 2rem;
+            }
+            .overlay p {
+                font-size: 1.2rem;
+            }
+            .footer-content {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-container">
+            <h2>¡Hola Bienvenida!</h2>
+            <p>Por favor, ingresa el número secreto para continuar.</p>
+            <p>(Si no tiene el numero pidale a Alex ).</p>
+            <input type="number" id="secretNumber" placeholder="Número Secreto" />
+            <button id="loginButton">Entrar</button>
+        </div>
+    </div>
+
+    <div id="contenidoPrincipal" style="display:none;">
+        <div class="overlay" id="overlay">
+            <h2>¡Hola, mi amor! 🌻</h2>
+            <p>¡Tengo una sorpresa para ti! </p>
+            <p>Si suena muy fuerte bájale el volumen</p>
+            <p>Presiona el botón de abajo, para ver algo especial.</p>
+            <button id="btnVer">Ver tu sorpresa</button>
+        </div>
+
+        <div class="logo-ramo" style="display:none;">
+            <img src="https://cdn.discordapp.com/attachments/1402742042177704007/1419053546380460164/6ae576e5-041f-4a4d-b5cb-18a8a6e4b159-350x435-removebg-preview.png?ex=68d05c1a&is=68cf0a9a&hm=a2a19096de2187eef4e949fc1e43b46b70d3c882a61df0b3dd90b33c8971f963&" alt="Ramo de Flores Amarillas" />
+        </div>
+        
+        <h1 style="display:none;">Para mi chinita preciosa 💖</h1>
+
+        <div class="mensaje" style="display:none;">
+            Estas flores amarillas son para ti, Mi Michon 💛.<br/>
+            No pienses que me he olvidado, quiero recordarte lo mucho que te amo.<br/>
+            Pronto, cuando esté contigo, te daré muchas flores, porque te mereces todo.<br/>
+            Te amo mucho, Michon.<br/>
+            Cada día que pasa pienso en ti y en lo feliz que me haces.<br/>
+            Gracias por ser siempre mi alegría y mi compañía.
+        </div>
+        
+        <div class="fotos" style="display:none;">
+            <img src="https://media.discordapp.net/attachments/1419067070561259551/1419067211129032774/image.png?ex=68d068d4&is=68cf1754&hm=451c0522a0ade19eb1e75ff543938c8e334c97cd06d5899c4b35307297fbf163&=&format=webp&quality=lossless" alt="Milo" />
+        </div>
+
+        <button id="botonPerdon" style="display:none;">¡Dale click aquí!</button>
+    </div>
+
+    <div class="overlay" id="overlayFinal" style="display:none;">
+        <h2>¡Qué alegría verte feliz!</h2>
+        <h2>Te amo mi vida. ¡Eres mi todo! 💖</h2>
+        <p>Con mucho amor, alex</p>
+    </div>
+
+    <audio id="musica" loop>
+        <source src="musica/musica.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+        const loginOverlay = document.getElementById('loginOverlay');
+        const loginButton = document.getElementById('loginButton');
+        const secretNumberInput = document.getElementById('secretNumber');
+        const contenido = document.getElementById('contenidoPrincipal');
+        const btnVer = document.getElementById('btnVer');
+        const overlay = document.getElementById('overlay');
+        const boton = document.getElementById('botonPerdon');
+        const overlayFinal = document.getElementById('overlayFinal');
+        const body = document.body;
+        const musica = document.getElementById('musica');
+
+        function iniciarMusica() {
+            musica.volume = 0.3;
+            musica.play().catch(e => console.log("No se pudo reproducir música:", e));
+
+            window.removeEventListener('click', iniciarMusica);
+            window.removeEventListener('keydown', iniciarMusica);
+            window.removeEventListener('touchstart', iniciarMusica);
+            window.removeEventListener('scroll', iniciarMusica);
+        }
+        
+        // Inicia la música cuando se muestra el overlay con el botón "Ver tu sorpresa"
+        window.addEventListener('load', () => {
+            const isLogin = loginOverlay.style.display !== 'none';
+            if (!isLogin) {
+                iniciarMusica();
+            }
+        });
+
+        loginButton.addEventListener('click', () => {
+            const enteredNumber = secretNumberInput.value;
+            if (enteredNumber === '212') {
+                loginOverlay.style.display = 'none';
+                contenido.style.display = 'flex';
+                // Inicia la música cuando se revela el contenido principal
+                iniciarMusica();
+            } else {
+                alert('Número incorrecto. Intenta de nuevo.');
+            }
+        });
+
+        btnVer.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            document.querySelector('.logo-ramo').style.display = 'block';
+            document.querySelector('h1').style.display = 'block';
+            document.querySelector('.mensaje').style.display = 'block';
+            document.querySelector('.fotos').style.display = 'flex';
+            boton.style.display = 'block';
+        });
+
+        boton.addEventListener('click', () => {
+            overlayFinal.style.display = 'flex';
+            body.style.background = 'linear-gradient(135deg, #FFEA00, #FFD700)';
+            boton.style.display = 'none';
+            if (musica.paused) {
+                musica.volume = 0.2;
+                musica.play().catch(e => console.log("No se pudo reproducir música:", e));
+            }
+            let count = 0;
+            const maxParticles = 30;
+            const intervalParticles = setInterval(() => {
+                if (count >= maxParticles) {
+                    clearInterval(intervalParticles);
+                    return;
+                }
+                createFlowerParticle();
+                count++;
+            }, 150);
+        });
+
+        function createFlowerParticle() {
+            const flower = document.createElement('div');
+            flower.classList.add('particle');
+            flower.innerText = '🌻';
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.top = '100vh';
+            flower.style.fontSize = Math.random() * 25 + 15 + 'px';
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 6000);
+        }
+
+        setInterval(createFlowerParticle, 500);
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            Desarrollado por <span class="developer-name">Alex Seyker</span>
+        </div>
+    </footer>
+
+</body>
+</html>
