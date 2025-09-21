@@ -8,14 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-        
         body, h1, h2, p, button {
             user-select: none;
             transition: background-color 1s ease;
             font-family: 'Montserrat', sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #FFFACD, #FFD700);
             margin: 0;
@@ -273,7 +271,7 @@
         <div class="login-container">
             <h2>¡Hola Bienvenida!</h2>
             <p>Por favor, ingresa el número secreto para continuar.</p>
-            <p>(Si no tiene el numero pidale a Alex ).</p>
+            <p>(Si no tiene el numero pídele a Alex).</p>
             <input type="number" id="secretNumber" placeholder="Número Secreto" />
             <button id="loginButton">Entrar</button>
         </div>
@@ -283,8 +281,8 @@
         <div class="overlay" id="overlay">
             <h2>¡Hola, mi amor! 🌻</h2>
             <p>¡Tengo una sorpresa para ti! </p>
-            <p>Si suena muy fuerte bájale el volumen</p>
-            <p>Presiona el botón de abajo, para ver algo especial.</p>
+            <p>Si suena muy fuerte, bájale el volumen.</p>
+            <p>Presiona el botón de abajo para ver algo especial.</p>
             <button id="btnVer">Ver tu sorpresa</button>
         </div>
 
@@ -304,7 +302,7 @@
         </div>
         
         <div class="fotos" style="display:none;">
-            <img src="https://media.discordapp.net/attachments/1419067070561259551/1419067211129032774/image.png?ex=68d068d4&is=68cf1754&hm=451c0522a0ade19eb1e75ff543938c8e334c97cd06d5899c4b35307297fbf163&=&format=webp&quality=lossless" alt="Milo" />
+            <img src="https://media.discordapp.net/attachments/1419067070561259551/1419067211129032774/image.png?ex=68d068d4&is=68cf1754&hm=451c0522a0ade19eb1e75ff543938c8e334c97cd06d5899c4b35307297fbf163&=&format=webp&quality=lossless" alt="arreved" />
         </div>
 
         <button id="botonPerdon" style="display:none;">¡Dale click aquí!</button>
@@ -313,7 +311,7 @@
     <div class="overlay" id="overlayFinal" style="display:none;">
         <h2>¡Qué alegría verte feliz!</h2>
         <h2>Te amo mi vida. ¡Eres mi todo! 💖</h2>
-        <p>Con mucho amor, alex</p>
+        <p>Con mucho amor, Alex</p>
     </div>
 
     <audio id="musica" loop>
@@ -342,7 +340,6 @@
             window.removeEventListener('scroll', iniciarMusica);
         }
         
-        // Inicia la música cuando se muestra el overlay con el botón "Ver tu sorpresa"
         window.addEventListener('load', () => {
             const isLogin = loginOverlay.style.display !== 'none';
             if (!isLogin) {
@@ -355,7 +352,6 @@
             if (enteredNumber === '212') {
                 loginOverlay.style.display = 'none';
                 contenido.style.display = 'flex';
-                // Inicia la música cuando se revela el contenido principal
                 iniciarMusica();
             } else {
                 alert('Número incorrecto. Intenta de nuevo.');
